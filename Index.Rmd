@@ -83,7 +83,7 @@ knitr::include_graphics("./images/save0.png")
 Choose where you want to save your file, give it a sensible names, and in `save as types`, choose 'CSV (comma delimited)' (or similar). It is recommended to save it in the relevant R project.
 
 ```{r echo=FALSE, out.width="100%", fig.align='left'}
-knitr::include_graphics("./images/save3 - Copy.PNG")
+knitr::include_graphics("./images/save3.PNG")
 ```
 
 Finally click `save`. You may then get a warning that you are saving only one of your sheets, which is normal. You just want to save the data in the active tab.
@@ -106,7 +106,7 @@ If your data comes from another statistical software like SAS, SPSS, STATA, then
 
 To start with, you should be on your project folder and have a new R Markdown file open (File -> New file -> R Markdown...).
 ```{r echo=FALSE, out.width="80%", fig.align='left'}
-knitr::include_graphics("./images/rmarkdown.png")
+knitr::include_graphics("./images/rmarkdown.PNG")
 ```
 
 
@@ -120,51 +120,51 @@ For data coming from SAS, SPSS or STATA, you will have to use an external packag
 
 From Rstudio, click on the `import dataset` menu. It is located at the top right of your screen if you haven't changed the default organisation of the Rstudio windows. If you've copied Andy Field's organisation, then it may be at the bottom left of your screen.
 ```{r echo=FALSE, out.width="100%", fig.align='left'}
-knitr::include_graphics("./images/import1.png")
+knitr::include_graphics("./images/import1.PNG")
 ```
 
 You can see that you have several options to choose from. If you were importing data from SAS, SPSS or STATA, you would use the relevant option at the bottom. This requires the package Haven to be installed, but as said before, it is part of tidyverse, so if tidyverse is installed, it should work well. But if your data is saved as a csv file, you should just click on the first option `From Text (base)`
 ```{r echo=FALSE, out.width="70%", fig.align='left'}
-knitr::include_graphics("./images/import2.png")
+knitr::include_graphics("./images/import2.PNG")
 ```
 
 
 Locate your csv file
 ```{r echo=FALSE, out.width="70%", fig.align='left'}
-knitr::include_graphics("./images/import3.png")
+knitr::include_graphics("./images/import3.PNG")
 ```
 
 Check in the preview window that the importation seems to work well. If you see some issues like weird column names, weird rows or columns, play with the parameters on the left to fix the issues. Click `import`
 ```{r echo=FALSE, out.width="80%", fig.align='left'}
-knitr::include_graphics("./images/import4.png")
+knitr::include_graphics("./images/import4.PNG")
 ```
 
 
 Check your environment window for the number of rows and columns of your new object.
 ```{r echo=FALSE, out.width="60%", fig.align='left'}
-knitr::include_graphics("./images/import5.png")
+knitr::include_graphics("./images/import5.PNG")
 ```
 
 
 Copy the command that R just wrote in the console (only the `read.csv()` command. The `View()` command is an interactive command that should not be on your scripts).
 ```{r echo=FALSE, out.width="80%", fig.align='left'}
-knitr::include_graphics("./images/import7.png")
+knitr::include_graphics("./images/import7.PNG")
 ```
 
 Insert a first R chunk at the top of your R Markdown file
 ```{r echo=FALSE, out.width="50%", fig.align='left'}
-knitr::include_graphics("./images/import8.png")
+knitr::include_graphics("./images/import8.PNG")
 ```
 
 
 Then paste the importing command inside the R chunk 
 ```{r echo=FALSE, out.width="70%", fig.align='left'}
-knitr::include_graphics("./images/import9.png")
+knitr::include_graphics("./images/import9.PNG")
 ```
 
 We are done with the importation step. We can now start working on this data. Don't forget to load the libraries that you will need and to write text outside the R chunks to describe what you're doing.
 ```{r echo=FALSE, out.width="100%", fig.align='left'}
-knitr::include_graphics("./images/import10.png")
+knitr::include_graphics("./images/import10.PNG")
 ```
 
 
