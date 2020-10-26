@@ -81,8 +81,9 @@ knitr::include_graphics("./images/save0.png")
 ```
 
 Choose where you want to save your file, give it a sensible names, and in `save as types`, choose 'CSV (comma delimited)' (or similar). It is recommended to save it in the relevant R project.
+
 ```{r echo=FALSE, out.width="100%", fig.align='left'}
-knitr::include_graphics("./images/save3.png")
+knitr::include_graphics("./images/save3 - Copy.PNG")
 ```
 
 Finally click `save`. You may then get a warning that you are saving only one of your sheets, which is normal. You just want to save the data in the active tab.
