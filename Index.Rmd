@@ -83,7 +83,7 @@ In both cases, make sure you keep a copy of your tidied data and your original r
 
 If your data lies in a spreadsheet like Excel, Google Sheets or LibreOffice Calc, we recommend you save your data as a csv file. There are external packages that can help you import data directly from Excel, but in our experience, things are more likely to go smoothly if you import your data from a csv file. A csv file is a simple text file where your values are separated by a specific character. As "csv" stands for "comma separated value", you can guess that in general, this specific character is the comma.
 
-Download this Excel file and follow the steps, using the tab called "Exple1 - good" as the data sheet we want to save: [BasicExample.xlsx](https://github.com/stats4sd/r2020_04Importing/raw/main/BasicExample.xlsx)
+Download this Excel file and follow the steps, using the tab called "Exple1 - good" as the data sheet we want to save: [BasicExample.xlsx](https://github.com/stats4sd/r2020_04Importation/raw/main/BasicExample.xlsx)
 Note that if you don't have Excel on your computer, use any spreadsheet software that you like. The steps should be very similar.
 
 
@@ -106,7 +106,7 @@ If your data comes from another statistical software like SAS, SPSS, STATA, or f
 
 
 *Question: download the following Excel file containing data from the 2019 World Happiness Report and try to save it as a csv file, following the steps above. Call this file Happiness.csv*
-[Happiness.xlsx](https://github.com/stats4sd/r2020_04Rstudio/raw/main/Happiness.xlsx)
+[Happiness.xlsx](https://github.com/stats4sd/r2020_04Importation/raw/main/Happiness.xlsx)
 
 
 
@@ -123,9 +123,9 @@ To start with, you should be on your project folder and have a new empty R Markd
 knitr::include_graphics("./images/rmarkdown.PNG")
 ```
 
-To make it empty, simply click `Create Empty Document` at the bottom left of the window that pops up.
+To make it empty, simply click `Create Empty Document` at the bottom left of the next window.
 
-```{r echo=FALSE, out.width="80%", fig.align='left'}
+```{r echo=FALSE, out.width="60%", fig.align='left'}
 knitr::include_graphics("./images/rmarkdown2.PNG")
 ```
 
@@ -154,7 +154,7 @@ Locate your csv file
 knitr::include_graphics("./images/import3.PNG")
 ```
 
-Check in the preview window that the importation seems to work well. If you see some issues like weird column names, weird rows or columns, play with the parameters on the left to fix the issues. Click `import`
+Check in the preview window that the importation seems to work well. If you see some issues like weird column names, weird rows or columns, play with the parameters on the left to fix the issues. Click `Import`
 ```{r echo=FALSE, out.width="80%", fig.align='left'}
 knitr::include_graphics("./images/import4.PNG")
 ```
@@ -182,7 +182,7 @@ Then paste the importing command inside the R chunk
 knitr::include_graphics("./images/import9.PNG")
 ```
 
-We are done with the importation step. We can now start working on this data. Don't forget to load the libraries that you will need and to write text outside the R chunks to describe what you're doing.
+We are done with the importation step. We can now start working on this data. Don't forget to load the libraries that you will need and to write text outside the R chunks to document what you're doing.
 ```{r echo=FALSE, out.width="100%", fig.align='left'}
 knitr::include_graphics("./images/import10.PNG")
 ```
@@ -216,6 +216,6 @@ Video explaining the command to import text files into R - DataCamp:<a href="htt
 Article on the RStudio support site showing how to import data from different files via the RStudio import menu:<a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio" target="_blank">Importing Data with RStudio</a> 
 
 
-
+RStudio documentation on connecting to databases using R  <a href="https://db.rstudio.com" target="_blank">https://db.rstudio.com </a>
 
 

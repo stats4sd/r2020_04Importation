@@ -118,7 +118,7 @@ $(document).ready(function () {
 
 <div id="section-overview" class="section level2">
 <h2>Overview</h2>
-<p>In this workbook, we will learn the process of importing data into R, which consists in</p>
+<p>In this workbook, we will learn the process of importing data into R, which consists of</p>
 <ul>
 <li>making sure the data has the right shape</li>
 <li>saving the data in an R-friendly format</li>
@@ -161,14 +161,14 @@ $(document).ready(function () {
 <div id="section-file-format" class="section level2">
 <h2>File format</h2>
 <p>If your data lies in a spreadsheet like Excel, Google Sheets or LibreOffice Calc, we recommend you save your data as a csv file. There are external packages that can help you import data directly from Excel, but in our experience, things are more likely to go smoothly if you import your data from a csv file. A csv file is a simple text file where your values are separated by a specific character. As “csv” stands for “comma separated value”, you can guess that in general, this specific character is the comma.</p>
-<p>Download this Excel file and follow the steps, using the tab called “Exple1 - good” as the data sheet we want to save: <a href="https://github.com/stats4sd/r2020_04Importing/raw/main/BasicExample.xlsx">BasicExample.xlsx</a> Note that if you don’t have Excel on your computer, use any spreadsheet software that you like. The steps should be very similar.</p>
+<p>Download this Excel file and follow the steps, using the tab called “Exple1 - good” as the data sheet we want to save: <a href="https://github.com/stats4sd/r2020_04Importation/raw/main/BasicExample.xlsx">BasicExample.xlsx</a> Note that if you don’t have Excel on your computer, use any spreadsheet software that you like. The steps should be very similar.</p>
 <p>Click on the tab of the data that you want to save. Check that the data is in the right shape, then click <code>File -&gt; Save As</code></p>
 <p><img src="images/save0.png" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Choose where you want to save your file, give it a sensible names, and in <code>Save as types</code>, choose ‘CSV (comma delimited)’ (or similar). It is recommended to save it in the same folder as the R project.</p>
 <p><img src="images/save3.PNG" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Finally click <code>Save</code>. You may then get a warning that you are saving only one of your sheets, which is normal. You just want to save the data in the active tab.</p>
 <p>If your data comes from another statistical software like SAS, SPSS, STATA, or from an SQL database, then, your data is already in a nice format for importation.</p>
-<p><em>Question: download the following Excel file containing data from the 2019 World Happiness Report and try to save it as a csv file, following the steps above. Call this file Happiness.csv</em> <a href="https://github.com/stats4sd/r2020_04Rstudio/raw/main/Happiness.xlsx">Happiness.xlsx</a></p>
+<p><em>Question: download the following Excel file containing data from the 2019 World Happiness Report and try to save it as a csv file, following the steps above. Call this file Happiness.csv</em> <a href="https://github.com/stats4sd/r2020_04Importation/raw/main/Happiness.xlsx">Happiness.xlsx</a></p>
 </div>
 <div id="section-importing-data" class="section level2">
 <h2>Importing data</h2>
@@ -176,8 +176,8 @@ $(document).ready(function () {
 <h3>Have your R Markdown file ready</h3>
 <p>To start with, you should be on your project folder and have a new empty R Markdown file opened. To create a new R Markdown file go to <code>File -&gt; New file -&gt; R Markdown...</code></p>
 <p><img src="images/rmarkdown.PNG" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
-<p>To make it empty, simply click <code>Create Empty Document</code> at the bottom left of the window that pops up.</p>
-<p><img src="images/rmarkdown2.PNG" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>To make it empty, simply click <code>Create Empty Document</code> at the bottom left of the next window.</p>
+<p><img src="images/rmarkdown2.PNG" width="60%" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 <div id="section-importing-your-file" class="section level3">
 <h3>Importing your file</h3>
@@ -186,27 +186,16 @@ $(document).ready(function () {
 <p>From Rstudio, click on the <code>import dataset</code> menu. It is located at the top right of your screen if you haven’t changed the default organisation of the Rstudio windows. If you’ve copied Andy Field’s organisation, then it may be at the bottom left of your screen. <img src="images/import1.PNG" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>You can see that you have several options to choose from. If you were importing data from SAS, SPSS or STATA, you would use the relevant option at the bottom. This requires the package Haven to be installed, but as said before, it is part of tidyverse, so if tidyverse is installed, it should work well. You can also see the option “From Excel…”. So importing data directly from Excel is possible via the menu as well. But as said earlier, it is not uncommon to have unexpected issue when importing data directly from Excel, so we recommend to stick to an importation via csv file. And if your data is saved as a csv file, you should just click on the first option <code>From Text (base)</code> <img src="images/import2.PNG" width="70%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Locate your csv file <img src="images/import3.PNG" width="70%" style="display: block; margin: auto auto auto 0;" /></p>
-<p>Check in the preview window that the importation seems to work well. If you see some issues like weird column names, weird rows or columns, play with the parameters on the left to fix the issues. Click <code>import</code> <img src="images/import4.PNG" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>Check in the preview window that the importation seems to work well. If you see some issues like weird column names, weird rows or columns, play with the parameters on the left to fix the issues. Click <code>Import</code> <img src="images/import4.PNG" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Check your environment window for the number of rows and columns of your new object. <img src="images/import5.PNG" width="60%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Copy the command that R just wrote in the console (only the <code>read.csv()</code> command. The <code>View()</code> command is an interactive command that should not be on your scripts). <img src="images/import7.PNG" width="80%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Insert a first R chunk at the top of your R Markdown file <img src="images/import8.PNG" width="50%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Then paste the importing command inside the R chunk <img src="images/import9.PNG" width="70%" style="display: block; margin: auto auto auto 0;" /></p>
-<p>We are done with the importation step. We can now start working on this data. Don’t forget to load the libraries that you will need and to write text outside the R chunks to describe what you’re doing. <img src="images/import10.PNG" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>We are done with the importation step. We can now start working on this data. Don’t forget to load the libraries that you will need and to write text outside the R chunks to document what you’re doing. <img src="images/import10.PNG" width="100%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Having the importation command in your R Markdown script file is important, so that the next time you open RStudio, you don’t have to go through the importation process again. You can just run the command that is in your file. Next time, when you open your R Markdown, you will just need to run the R chunk and your data will be imported!</p>
 <p>Note: you can see that the importation command contains a path to your data file. So if you move your data, for example to place it in a specific data folder in your project, you’ll have to change the path.</p>
 <p><em>Question: Follow the steps above to import the Happiness.csv file that you saved in the previous section. Check the appendix to know more about this dataset</em></p>
 </div>
-</div>
-<div id="section-exercise" class="section level2">
-<h2>Exercise</h2>
-<p>Now that you have your data into R – let’s do a quick exercise to recap what we learnt in Modules 1-3, but writing out code entirely in RStudio instead of online.</p>
-<ol style="list-style-type: decimal">
-<li>Find the 5 countries with the lowest ‘generosity scores’<br />
-</li>
-<li>Produce a subset of countries which have below average scores for both GDP and generosity.<br />
-</li>
-<li>Make a plot showing the relationship between generosity and GDP per capita</li>
-</ol>
 </div>
 <div id="section-appendix-happiness-dataset" class="section level2">
 <h2>Appendix: ‘Happiness’ dataset</h2>
@@ -219,6 +208,7 @@ $(document).ready(function () {
 <p>Illustrated presentation of ‘tidy data’: <a href="https://docs.google.com/presentation/d/1N7hKepabvl9OrHjvGJWPjUsfzVdB5xzV5AsFndgSwms/edit?usp=sharing" target="_blank">Make friends with tidy data </a></p>
 <p>Video explaining the command to import text files into R - DataCamp:<a href="https://www.youtube.com/watch?v=Yy-ismDUkkQ" target="_blank">https://www.youtube.com/watch?v=Yy-ismDUkkQ </a></p>
 <p>Article on the RStudio support site showing how to import data from different files via the RStudio import menu:<a href="https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio" target="_blank">Importing Data with RStudio</a></p>
+<p>RStudio documentation on connecting to databases using R <a href="https://db.rstudio.com" target="_blank">https://db.rstudio.com </a></p>
 
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
