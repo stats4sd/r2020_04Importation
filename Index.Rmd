@@ -7,7 +7,7 @@ output:
     df_print: default
 runtime: shiny_prerendered
 description: >
-  Learn about the basic syntax of R.
+  Learn how to import data from RStudio.
 ---
 
 
