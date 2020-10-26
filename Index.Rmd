@@ -20,7 +20,7 @@ tutorial_options(exercise.timelimit = 10)
 
 ## Overview
 
-In this workbook, we will learn the process of importing data into R, which consists in
+In this workbook, we will learn the process of importing data into R, which consists of
 
 - making sure the data has the right shape
 - saving the data in an R-friendly format
@@ -34,6 +34,7 @@ Here is a video where these steps are briefly explained:
 
 
 ## Shaping the data
+
 First let's talk about data shape. If you want to import data into R - or into any statistical software really - you need your data to have the right shape. It should take the form of one single "rectangle" of data, made of columns and rows that don't vary in size, and where
 
 - Each row represents one observation
@@ -51,14 +52,17 @@ Everything in your rectangle of data should be part of your data. There's no pro
 
 
 
+
 ### Avoid merging cells
 In spreadsheets like Excel, it is tempting to merge cells in order to make things look nicer. The issue is that merged cells don't transfer well to other softwares. So if you want to look at your data from R or any other statistical software, don't merge your cells. Instead, copy the value in all the corresponding cells.
 ```{r echo=FALSE, out.width="80%", fig.align='left'}
-knitr::include_graphics("./images/merge.png")
+knitr::include_graphics("./images/merge2.png")
 ```
 
 ### Column names good practice
-It is best to keep your column names meaningful, yet short, and to avoid spaces, accent and other special characters, except for the dot and the underscore symbols. As an example, "Température Minimale", could be shortened to "temp.min". 
+It is best to keep your column names meaningful, yet short, and to avoid spaces, accent and other special characters, except for the dot and the underscore symbols. These probably sound a bit familiar. That's because, the rules for naming columns are basically the same as the rules for naming objects (see workbook of module 1). And this is not surprising, because columns are objects that lie within dataframes.
+
+As an example, a column called "Température Minimale", could be shortened to "temp.min". 
 
 
 ### Missing values
@@ -66,33 +70,42 @@ It is best to keep your column names meaningful, yet short, and to avoid spaces,
 As said above, having missing data is totally fine. I mean, it may be an issue for your analysis, but it is not an issue for importing data. It is common for people to have a specific code to represent missing values, like -1, 99 or NA. These are all fine. What's important is to choose a code that cannot be a value taken by your non-missing data, and to be consistent. If you code missing values differently for each of your columns, you're asking yourself for trouble. My personal preference is to simply leave the cell empty. An empty cell is easy to spot and R will recognize it automatically as a missing value.
 
 
+### How to shape your data
+
+Ideally the shape of your data should be thought through right from the start, at the design stage of your study, so that during data collection, your data already has the right shape. Unfortunately, things don't always go as planned, and you may not always have control over the way the data is collected. In such case, you could end up with some data that is not in the shape described above.
+
+There are two ways to deal with that. Either reshaping the data in a software like Excel, or doing so in R directly. The former is probably simpler at first, but at some point, when you are more experience with R, you should consider doing most of the work in R, so that you have a script documenting clearly what you're doing and making everything you do to that data reproducible.
+
+In both cases, make sure you keep a copy of your tidied data and your original row data, in case there is any issue.
+
+
 ## File format
 
 If your data lies in a spreadsheet like Excel, Google Sheets or LibreOffice Calc, we recommend you save your data as a csv file. There are external packages that can help you import data directly from Excel, but in our experience, things are more likely to go smoothly if you import your data from a csv file. A csv file is a simple text file where your values are separated by a specific character. As "csv" stands for "comma separated value", you can guess that in general, this specific character is the comma.
 
-Download this excel file and follow the steps, using the tab called "Exple1 - good" as the data sheet we want to save: [BasicExample.xlsx](https://github.com/stats4sd/r2020_04Rstudio/raw/main/BasicExample.xlsx)
-Note that if you don't have excel on your computer, use any spreadsheet software that you like. The steps should be very similar.
+Download this Excel file and follow the steps, using the tab called "Exple1 - good" as the data sheet we want to save: [BasicExample.xlsx](https://github.com/stats4sd/r2020_04Importing/raw/main/BasicExample.xlsx)
+Note that if you don't have Excel on your computer, use any spreadsheet software that you like. The steps should be very similar.
 
 
-click on the tab of the data that you want to save. Check that the data is in the right shape, then click `file -> save as`
+Click on the tab of the data that you want to save. Check that the data is in the right shape, then click `File -> Save As`
 
 ```{r echo=FALSE, out.width="80%", fig.align='left'}
 knitr::include_graphics("./images/save0.png")
 ```
 
-Choose where you want to save your file, give it a sensible names, and in `save as types`, choose 'CSV (comma delimited)' (or similar). It is recommended to save it in the relevant R project.
+Choose where you want to save your file, give it a sensible names, and in `Save as types`, choose 'CSV (comma delimited)' (or similar). It is recommended to save it in the same folder as the R project.
 
 ```{r echo=FALSE, out.width="100%", fig.align='left'}
 knitr::include_graphics("./images/save3.PNG")
 ```
 
-Finally click `save`. You may then get a warning that you are saving only one of your sheets, which is normal. You just want to save the data in the active tab.
+Finally click `Save`. You may then get a warning that you are saving only one of your sheets, which is normal. You just want to save the data in the active tab.
 
 
-If your data comes from another statistical software like SAS, SPSS, STATA, then, your data is already in a nice format for importation.
+If your data comes from another statistical software like SAS, SPSS, STATA, or from an SQL database, then, your data is already in a nice format for importation.
 
 
-*Question: download the following excel file containing data from the 2019 World Happiness Report and try to save it as a csv file, following the steps above*
+*Question: download the following Excel file containing data from the 2019 World Happiness Report and try to save it as a csv file, following the steps above. Call this file Happiness.csv*
 [Happiness.xlsx](https://github.com/stats4sd/r2020_04Rstudio/raw/main/Happiness.xlsx)
 
 
@@ -104,18 +117,25 @@ If your data comes from another statistical software like SAS, SPSS, STATA, then
 
 ### Have your R Markdown file ready
 
-To start with, you should be on your project folder and have a new R Markdown file open (File -> New file -> R Markdown...).
+To start with, you should be on your project folder and have a new empty R Markdown file opened. To create a new R Markdown file go to `File -> New file -> R Markdown...` 
+
 ```{r echo=FALSE, out.width="80%", fig.align='left'}
 knitr::include_graphics("./images/rmarkdown.PNG")
 ```
 
+To make it empty, simply click `Create Empty Document` at the bottom left of the window that pops up.
 
-A new R Markdown file comes with examples of text and commands. We don't need them here. Delete everything to have an empty file. 
+```{r echo=FALSE, out.width="80%", fig.align='left'}
+knitr::include_graphics("./images/rmarkdown2.PNG")
+```
+
 
 
 ### Importing your file
 
-For data coming from SAS, SPSS or STATA, you will have to use an external package to import your file into R. There are multiple options, but we recommend you use the package haven, which is another package included in tidyverse. What's nice with this package is that it is embeded in the RStudio importation menu, and so the method to import data works the same way as with a csv file. That is:
+R can import data from many different format and we will not cover all of them here. In particular, we will not see how to retrieve data from an SQL database, as it is slightly more advanced than the scope of this course. The following documentation  <a href="https://db.rstudio.com" target="_blank">here </a> should be a good starting point though. If you have any question related to it, don't hesitate to post it in the "Out of scope questions" forum. 
+
+For data coming from SAS, SPSS or STATA, you will have to use an external package to import your file into R. There are multiple options, but we recommend you use the package haven, which is another package included in tidyverse. What's nice with this package is that it is embedded in the RStudio importation menu, and so the method to import data works the same way as with a csv file. That is:
 
 
 From Rstudio, click on the `import dataset` menu. It is located at the top right of your screen if you haven't changed the default organisation of the Rstudio windows. If you've copied Andy Field's organisation, then it may be at the bottom left of your screen.
@@ -123,7 +143,7 @@ From Rstudio, click on the `import dataset` menu. It is located at the top right
 knitr::include_graphics("./images/import1.PNG")
 ```
 
-You can see that you have several options to choose from. If you were importing data from SAS, SPSS or STATA, you would use the relevant option at the bottom. This requires the package Haven to be installed, but as said before, it is part of tidyverse, so if tidyverse is installed, it should work well. But if your data is saved as a csv file, you should just click on the first option `From Text (base)`
+You can see that you have several options to choose from. If you were importing data from SAS, SPSS or STATA, you would use the relevant option at the bottom. This requires the package Haven to be installed, but as said before, it is part of tidyverse, so if tidyverse is installed, it should work well. You can also see the option "From Excel...". So importing data directly from Excel is possible via the menu as well. But as said earlier, it is not uncommon to have unexpected issue when importing data directly from Excel, so we recommend to stick to an importation via csv file. And if your data is saved as a csv file, you should just click on the first option `From Text (base)`
 ```{r echo=FALSE, out.width="70%", fig.align='left'}
 knitr::include_graphics("./images/import2.PNG")
 ```
@@ -173,8 +193,18 @@ Having the importation command in your R Markdown script file is important, so t
 Note: you can see that the importation command contains a path to your data file. So if you move your data, for example to place it in a specific data folder in your project, you'll have to change the path.
 
 
-*Question: follow the steps above to import the Happiness.csv file that you saved in the previous section*
+*Question: Follow the steps above to import the Happiness.csv file that you saved in the previous section. Check the appendix to know more about this dataset*
 
+
+
+
+## Appendix: 'Happiness' dataset 
+
+The data used for the questions in this workbook comes from the World Happiness Report 2019. The World Happiness Report is an annual publication of the United Nations Sustainable Development Solutions Network. It aims at ranking 156 countries by level of global happiness of their population, by doing an annual survey on their citizens.
+
+In this dataset, the variables 'GDP per capita','Social support','Healthy life expectancy','Freedom to make life choices','Generosity' and 'Perceptions of corruption' are factors used to compute the Happiness Score ('Score').
+
+The methodology, as well as more information about this publication, can be found <a href="https://worldhappiness.report/ed/2019/" target="_blank">here </a>. 
 
 ## Appendix:  Useful reference links  
 
